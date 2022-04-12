@@ -1,5 +1,15 @@
-### Weekly Changelog
+### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
+
+## Week 04/1401
+###### 15/2022
+* `kubectl get events --sort-by='.metadata.creationTimestamp' -A`
+* https://linuxhint.com/sort-kubectl-events-by-time/
+* https://linuxhint.com/tag/kubernetes/
+* https://castbox.fm/episode/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87-%D9%86%D9%88%DB%8C%D8%B3%DB%8C-%D8%B3%DB%8C%D8%B3%D8%AA%D9%85%DB%8C-%D9%88-%D8%B3%D8%B7%D8%AD-%D9%BE%D8%A7%DB%8C%DB%8C%D9%86-%D8%A8%D8%A7-%DB%8C%D8%A7%D8%B3%D8%B1-%DA%98%DB%8C%D8%A7%D9%86-id4753594-id483693042?country=us
+* https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+* https://coderwall.com/p/wohavg/creating-a-simple-tcp-server-in-go
+* https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
 
 ## Week 03/1401
 ###### 14/2022
