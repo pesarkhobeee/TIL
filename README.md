@@ -10,6 +10,11 @@ My weekly journey log regarding interesting things that I saw
 * https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
 * https://coderwall.com/p/wohavg/creating-a-simple-tcp-server-in-go
 * https://medium.com/bb-tutorials-and-thoughts/kubernetes-learn-sidecar-container-pattern-6d8c21f873d
+* https://dynobase.dev/dynamodb-vs-aurora/#:~:text=Shared%20Attributes%20for%20DynamoDB%20and%20Aurora&text=And%2C%20the%20most%20significant%20difference,seamlessly%20scales%20up%20or%20down
+* https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+* https://en.wiktionary.org/wiki/PEBCAK
+* https://ruslanspivak.com/lsbaws-part1/
+* https://ruslanspivak.com/lsbaws-part2/
 
 ## Week 03/1401
 ###### 14/2022
