@@ -1,6 +1,15 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 05/1401
+###### 16/2022
+* `kubectl create job --from=cronjob/<name of cronjob> <name of job>`
+* https://ruslanspivak.com/lsbaws-part3
+* https://buttondown.email/hillelwayne/archive/why-i-still-use-vim/
+* https://thepugautomatic.com/2014/03/vims-life-changing-c-percent/
+* 9 Steps to Awesome with Kubernetes by Burr Sutter: https://www.youtube.com/watch?v=ZpbXSdzp_vo
+* https://github.com/burrsutter/9stepsawesome
+
 ## Week 04/1401
 ###### 15/2022
 * `kubectl get events --sort-by='.metadata.creationTimestamp' -A`
