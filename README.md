@@ -1,8 +1,18 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
-## This is a test
-:D
+## Week 06/1401
+###### 17/2022
+* How to Deploy a Kubernetes Cluster from Scratch => https://www.youtube.com/watch?v=t4H6hdvB9iQ
+* What Is Kubernetes Node Affinity? => https://www.youtube.com/watch?v=6ZHjqpn9dck
+* Kubernetes Explained => https://www.youtube.com/watch?v=aSrqRSk43lY
+* How does Kubernetes create a Pod? => https://www.youtube.com/watch?v=BgrQ16r84pM
+* https://developer.chrome.com/docs/extensions/
+* https://developer.chrome.com/docs/extensions/reference/runtime/#event-onStartup
+* https://developer.chrome.com/docs/extensions/mv3/service_workers/
+* https://developer.chrome.com/docs/extensions/reference/alarms/#type-AlarmCreateInfo
+* https://stackoverflow.com/questions/26883915/google-chrome-extension-alarm-at-specific-time
+* https://github.com/pesarkhobeee/Harold
 
 ## Week 05/1401
 ###### 16/2022
