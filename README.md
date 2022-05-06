@@ -1,6 +1,16 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 07/1401
+###### 18/2022
+* To remove an specific line from all files => sed -i '' '/registryProject: private/d' *
+* git rev-list --all | git grep -i "imagepullpolicy"
+* SAML Explained in Plain English => https://www.onelogin.com/learn/saml#:~:text=SAML%20is%20an%20acronym%20used,one%20set%20of%20login%20credentials
+* An Illustrated Guide to OAuth and OpenID Connect => https://www.youtube.com/watch?v=t18YB3xDfXI
+* THE Guide for securing your K8s cluster => https://www.youtube.com/watch?v=oBf5lrmquYI&t=951s
+* Introduction To LDAP - Common Terminologies => https://www.youtube.com/watch?v=NcvIqK4G_fQ
+* https://www.stackrox.io/blog/kubernetes-networking-demystified/
+
 ## Week 06/1401
 ###### 17/2022
 * How to Deploy a Kubernetes Cluster from Scratch => https://www.youtube.com/watch?v=t4H6hdvB9iQ
