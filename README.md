@@ -1,6 +1,20 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 08/1401
+###### 19/2022
+* https://docs.aws.amazon.com/eks/latest/userguide/update-cluster.html
+* https://kubernetes.io/blog/2021/07/14/upcoming-changes-in-kubernetes-1-22
+* https://ervinbarta.com/2021/10/19/slo-alerting-for-mortals/
+* Alerting on error budget burn rate => https://www.youtube.com/watch?v=t1BGo-Il1AM
+* SLIs, SLOs, SLAs, oh my! (class SRE implements DevOps) => https://www.youtube.com/watch?v=tEylFyxbDLE
+* How to build a PromQL (Prometheus Query Language) => https://www.youtube.com/watch?v=hvACEDjHQZE
+* https://ypereirareis.github.io/blog/2020/02/21/how-to-join-prometheus-metrics-by-label-with-promql/ 
+* How to learn Kubernetes in 2022 => https://www.youtube.com/watch?v=JeAHlTYB1Qk
+* Kubernetes Ingress: NGINX Explained => https://www.youtube.com/watch?v=u948CURLDJA
+* Don't Buy Just a Hammer Drill => https://www.youtube.com/watch?v=iwt-olc4nso
+* https://foundation.mozilla.org/en/blog/top-mental-health-and-prayer-apps-fail-spectacularly-at-privacy-security/
+
 ## Week 07/1401
 ###### 18/2022
 * To remove an specific line from all files => sed -i '' '/registryProject: private/d' *
