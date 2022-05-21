@@ -2,7 +2,7 @@
 My weekly journey log regarding interesting things that I saw
 
 ## Week 09/1401
-## 20/2022
+###### 20/2022
 * `k get endpoints -A -o wide`
 * `terraform state list | while read ARGS;do echo $ARGS;terraform state rm $ARGS; done`
 * https://blog.samaltman.com/how-to-be-successful
@@ -15,6 +15,7 @@ My weekly journey log regarding interesting things that I saw
 * https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 * https://kubernetes.io/docs/reference/kubectl/jsonpath/
 * https://www.aquasec.com/cloud-native-academy/devsecops/shift-left-devops/
+* https://farokhnotes.medium.com/startup-launch-checklist-how-to-get-the-first-100-users-a7233b4d49a1
 
 ## Week 08/1401
 ###### 19/2022
