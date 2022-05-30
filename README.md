@@ -1,6 +1,17 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 10/1401
+###### 21/2022
+* `kubectl get ingress -A -o jsonpath="{range .items[*]}{.metadata.name} {.metadata.namespace}{'\n'}{end}" | grep -v "current context"| while read ARGS; do $(echo $ARGS|awk {'print "kubectl patch ingress -n",$2, $1, "--patch-file patch.yaml" '}); done`
+* `kubectl patch ingress prometheus-operator-alertmanager  --type=json -p='[{"op": "remove", "path": "/spec/ingressClassName"}]' -n monitoring`
+* https://kubernetes.io/docs/tasks/manage-kubernetes-objects/update-api-object-kubectl-patch/
+* https://kubernetes.io/docs/reference/kubectl/jsonpath/
+* https://fzero.rubi.gd/post/general/gpg-step-by-step/
+* https://cloud.google.com/kubernetes-engine/pricing
+* https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture
+
+
 ## Week 09/1401
 ###### 20/2022
 * `k get endpoints -A -o wide`
@@ -33,8 +44,8 @@ My weekly journey log regarding interesting things that I saw
 
 ## Week 07/1401
 ###### 18/2022
-* To remove an specific line from all files => sed -i '' '/registryProject: private/d' *
-* git rev-list --all | git grep -i "imagepullpolicy"
+* To remove an specific line from all files => `sed -i '' '/registryProject: private/d' *`
+* `git rev-list --all | git grep -i "imagepullpolicy"`
 * SAML Explained in Plain English => https://www.onelogin.com/learn/saml#:~:text=SAML%20is%20an%20acronym%20used,one%20set%20of%20login%20credentials
 * An Illustrated Guide to OAuth and OpenID Connect => https://www.youtube.com/watch?v=t18YB3xDfXI
 * THE Guide for securing your K8s cluster => https://www.youtube.com/watch?v=oBf5lrmquYI&t=951s
