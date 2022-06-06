@@ -1,6 +1,17 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 11/1401
+###### 22/2022
+* `kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes"`
+* `kubectl get pods -A -o jsonpath="{range .items[*]}{.metadata.annotations}{'\n'}{.metadata.name}{'\n'}{end}"`
+* `git diff --cached`
+* `ls --color=always | les`
+* https://kubernetes.io/blog/2021/08/04/kubernetes-1-22-release-announcement/
+* https://kubernetes.github.io/ingress-nginx/#what-is-an-ingressclass-and-why-is-it-important-for-users-of-ingress-nginx-controller-now
+* https://www.ibm.com/docs/en/spp/10.1.8?topic=prerequisites-kubernetes-verifying-whether-metrics-server-is-running
+* https://www.cloudskillsboost.google/course_sessions/1123143/video/268025
+
 ## Week 10/1401
 ###### 21/2022
 * `kubectl get ingress -A -o jsonpath="{range .items[*]}{.metadata.name} {.metadata.namespace}{'\n'}{end}" | grep -v "current context"| while read ARGS; do $(echo $ARGS|awk {'print "kubectl patch ingress -n",$2, $1, "--patch-file patch.yaml" '}); done`
@@ -10,7 +21,6 @@ My weekly journey log regarding interesting things that I saw
 * https://fzero.rubi.gd/post/general/gpg-step-by-step/
 * https://cloud.google.com/kubernetes-engine/pricing
 * https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-architecture
-
 
 ## Week 09/1401
 ###### 20/2022
