@@ -11,6 +11,7 @@ My weekly journey log regarding interesting things that I saw
 * https://kubernetes.github.io/ingress-nginx/#what-is-an-ingressclass-and-why-is-it-important-for-users-of-ingress-nginx-controller-now
 * https://www.ibm.com/docs/en/spp/10.1.8?topic=prerequisites-kubernetes-verifying-whether-metrics-server-is-running
 * https://www.cloudskillsboost.google/course_sessions/1123143/video/268025
+* https://content.fme.de/en/blog/docker-is-dead-podman-an-alternative-tool
 
 ## Week 10/1401
 ###### 21/2022
