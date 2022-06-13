@@ -1,6 +1,22 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 12/1401
+###### 23/2022
+* `git commit --allow-empty`
+* `puppet agent -t --noop`
+* `edit-and-execute-command (C-xC-e)
+          Invoke  an  editor  on the current command line, and execute the
+          result as shell commands.   Bash  attempts  to  invoke  $VISUAL,
+          $EDITOR, and emacs as the editor, in that order.`
+* https://learnvimscriptthehardway.stevelosh.com/chapters/08.html
+* https://www.youtube.com/watch?v=ouZrZa5pLXk => ADD/ADHD | What Is Attention Deficit Hyperactivity Disorder?
+* https://www.youtube.com/watch?v=RMaCE5RT54c => ADHD - What is it and what's the difference with ADD?
+* https://www.youtube.com/watch?v=O0-9Zh6PZaM => 5 Signs of Inattentive ADHD (ADD)
+* https://www.youtube.com/watch?v=hwJusJQUSHM => My Life with ADD - Rick Green
+* https://www.youtube.com/watch?v=8cvhwquPqJ0 => BECOMING SUPERHUMAN WITH ICE MAN - Wim Hof
+* https://www.youtube.com/watch?v=LNHBMFCzznE => After watching this, your brain will not be the same
+
 ## Week 11/1401
 ###### 22/2022
 * `kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes"`
