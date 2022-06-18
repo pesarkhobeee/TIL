@@ -1,6 +1,14 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 13/1401
+###### 24/2022
+* `cat ~/.kube/config | yq e '.users.[].name' - | grep -v "master" | grep -v "bonial-eu" | while read ARGS; do echo $ARGS; kubectx $ARGS; kubectl get pod -A -o json | jq '.items[].spec.containers[].image' -r | sort -u | grep "library"; done `
+* `cat ~/.kube/config | yq e '.users.[] | .user.exec.env[0].value + " " + .name' - | while read ARGS; do $(echo $ARGS|awk {'print "aws-azure-login --no-prompt --profile ",$1, "; kubectx ",$2,";" '}); done`
+* `kubectl get --raw /apis/admissionregistration.k8s.io/v1/validatingwebhookconfigurations`
+* `k get ValidatingWebhookConfiguration -A`
+* `k get Mutatingwebhookconfiguration -A`
+
 ## Week 12/1401
 ###### 23/2022
 * `git commit --allow-empty`
