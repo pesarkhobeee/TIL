@@ -1,6 +1,95 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+
+## Week 18/1401
+###### 29/2022
+* https://jamesclear.com/stop-procrastinating-seinfeld-strategy
+* https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
+```
+name: Cloudflare deleting old deployments workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      EXPIRATION_DAYS:
+        description: 'Deployments older than this amount of days should be deleted:'
+        default: '10'
+        required: true
+env:
+  ACCOUNT_ID: <ACCOUNT-ID>
+  PROJECT_NAME: <PROJECT-NAME>
+  API_KEY: ${{ secrets.API_KEY }}
+  EXPIRATION_DAYS: ${{ github.event.inputs.EXPIRATION_DAYS }}
+
+jobs:
+  Check-and-delete-old-Deployments:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check and delete old deployments
+      run: |
+            chmod +x "${GITHUB_WORKSPACE}/.github/scripts/cloudflare_cleanup_past_deployments.sh"
+            "${GITHUB_WORKSPACE}/.github/scripts/cloudflare_cleanup_past_deployments.sh"
+```
+```
+#!/usr/bin/env bash
+
+# In this script we are going to get the list of Cloudflare project deployments and then delete the old ones.
+# API_KEY , ACCOUNT_ID and PROJECT_NAME are mandatory environment variables.
+# Also you can define EXPIRATION_DAYS but it is optional and the default value is 7.
+# Technical API reference: https://developers.cloudflare.com/pages/platform/api/#deleting-old-deployments-after-a-week
+
+set -o errexit
+set -o pipefail
+
+expiration="${EXPIRATION_DAYS:-7}"
+
+function get_page_deployments_list_and_send_them_to_check_and_delete_old_deployments()
+{
+  curl --silent --show-error --header "content-type: application/json;charset=UTF-8" --header "Authorization: Bearer ${API_KEY}" -X GET "https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/pages/projects/${PROJECT_NAME}/deployments" | jq -r '.result[]| .id + " " + .created_on' | while read args; do check_and_delete_old_deployments $args; done
+}
+
+function check_and_delete_old_deployments()
+{
+  local deployment_id="$1"
+  local deployment_date="$2"
+
+  time_ago="${expiration} days ago"
+  deployment_time_sec=$(date --date "$deployment_date" +'%s')
+  time_ago_sec=$(date --date "$time_ago" +'%s')
+  if [ $deployment_time_sec -lt $time_ago_sec ]
+  then
+    echo "This deployment is going to be deleted:"
+    curl --silent --show-error --header "content-type: application/json;charset=UTF-8" --header "Authorization: Bearer ${API_KEY}" -X DELETE "https://api.cloudflare.com/client/v4/accounts/${ACCOUNT_ID}/pages/projects/${PROJECT_NAME}/deployments/${deployment_id}"
+  else
+    echo "This deployment is still newer than ${expiration} days:"
+  fi
+  echo -n $deployment_id
+  echo -n " "
+  echo $deployment_date
+}
+
+function main
+{
+  [[ -z "$API_KEY" ]] && { echo "Error: API_KEY is empty"; exit 1; }
+  [[ -z "$ACCOUNT_ID" ]] && { echo "Error: ACCOUNT_ID is empty"; exit 1; }
+  [[ -z "$PROJECT_NAME" ]] && { echo "Error: PROJECT_NAME is empty"; exit 1; }
+
+  get_page_deployments_list_and_send_them_to_check_and_delete_old_deployments;
+}
+
+main
+```
+
+## Week 14/1401 - 17/1401
+###### 25/2022 - 28/2022
+* [[[vacation]]]
+
 ## Week 13/1401
 ###### 24/2022
 * `cat ~/.kube/config | yq e '.users.[].name' - | grep -v "master" | grep -v "bonial-eu" | while read ARGS; do echo $ARGS; kubectx $ARGS; kubectl get pod -A -o json | jq '.items[].spec.containers[].image' -r | sort -u | grep "library"; done `
