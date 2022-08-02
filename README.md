@@ -6,6 +6,7 @@ My weekly journey log regarding interesting things that I saw
 ###### 29/2022
 * https://jamesclear.com/stop-procrastinating-seinfeld-strategy
 * https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
+* 
 ```
 name: Cloudflare deleting old deployments workflow
 
