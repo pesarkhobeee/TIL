@@ -1,6 +1,14 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 19/1401
+###### 30/2022
+* Using Config Connector for Google Cloud resource management => https://www.youtube.com/watch?v=3lAOr2XdAh4
+* https://medium.com/google-cloud/setting-up-config-connector-with-terraform-helm-8ce2f45f48a4
+* https://globalcloudplatforms.com/2021/08/28/saving-the-day-how-cloud-sql-makes-data-protection-easy/
+* Getting Started with Security Command Center => https://www.youtube.com/playlist?list=PLIivdWyY5sqKd-Cu1HZ7v5RiYE8gVsM7P
+* https://cloud.google.com/security-command-center/pricing?&_ga=2.182793250.-545711799.1658748326#standard_tier_pricing
+* https://nights.bearblog.dev/how-to-stop-being-terminally-online/
 
 ## Week 18/1401
 ###### 29/2022
