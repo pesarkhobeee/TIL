@@ -1,6 +1,15 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 20/1401
+###### 31/2022
+* https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
+* https://cloud.google.com/security-command-center/docs/how-to-notifications?hl=en 
+* https://cloud.google.com/container-analysis/docs/container-scanning-overview?_ga=2.144448945.-545711799.1658748326 
+* https://cloud.google.com/container-analysis/docs/container-scanning-overview 
+* https://cloud.google.com/container-analysis/docs/on-demand-scanning-howto
+* https://reb00ted.org/tech/20220727-end-of-social-networking/
+
 ## Week 19/1401
 ###### 30/2022
 * Using Config Connector for Google Cloud resource management => https://www.youtube.com/watch?v=3lAOr2XdAh4
