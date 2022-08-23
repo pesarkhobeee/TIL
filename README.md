@@ -1,6 +1,35 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 21/1401
+###### 32/2022
+* https://cloud.google.com/blog/topics/inside-google-cloud/meet-the-people-of-google-cloud-carrie-bell
+* https://pwning.owasp-juice.shop/part2/xss.html
+* https://github.com/juice-shop/juice-shop
+* https://artifacthub.io/packages/helm/securecodebox/juice-shop
+* https://hub.docker.com/r/bkimminich/juice-shop
+* https://github.com/go-delve/delve
+* .vscode/launch.json 
+```
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Package",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${fileDirname}",
+            "args": ["create", "static-website", "-n", "farid-test", "--github-repo", "farid-test-repo"]
+        } 
+    ]
+```
+* 
+
+
 ## Week 20/1401
 ###### 31/2022
 * https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
