@@ -1,6 +1,51 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 22/1401
+###### 33/2022
+* https://cloud.google.com/iam/docs/workload-identity-federation
+* Vulnerability check on all the docker images in a folder:
+```
+grep -ri "image:" | awk '{print $NF}'| sort -u | grep -Ev "image|latestImage|fluxcd"|while read image; do echo "***********************************"; echo $image; docker run --rm  -v /var/run/docker.sock:/var/run/docker.sock  -v $HOME/Library/Caches:/root/.cache/ -v ~/trivy:/trivy aquasec/trivy image --quiet --format json --output /trivy/trivy.json  $image && cat ~/trivy/trivy.json  | jq ".Results[].Vulnerabilities[]?.Severity" | sort | uniq -c; done
+```
+* https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+```
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+updates:
+  - package-ecosystem: "gomod"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - dependencies
+    commit-message:
+      prefix: "[NOTICKET-000]"
+      include: "scope"
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "08:00"
+    labels:
+      - dependencies
+    commit-message:
+      prefix: "[NOTICKET-000]"
+      include: "scope"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "monday"
+      time: "08:00"
+    labels:
+      - dependencies
+    commit-message:
+      prefix: "[NOTICKET-000]"
+      include: "scope"
+```
+
 ## Week 21/1401
 ###### 32/2022
 * https://cloud.google.com/blog/topics/inside-google-cloud/meet-the-people-of-google-cloud-carrie-bell
@@ -27,7 +72,6 @@ My weekly journey log regarding interesting things that I saw
         } 
     ]
 ```
-* 
 
 
 ## Week 20/1401
