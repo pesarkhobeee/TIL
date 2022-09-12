@@ -1,6 +1,21 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 23/1401 - 25/1401
+###### 34/2022 - 36/2022
+* https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understan[…]idc-token
+* https://cloud.google.com/iam/docs/workload-identity-federation#impersonation
+* https://github.com/google-github-actions/auth
+* https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
+* you can not use legacy bucket roles on project level ->  https://cloud.google.com/storage/docs/access-control/iam-roles#legacy-roles
+* `gcloud auth application-default login`
+* `gcloud auth configure-docker europe-west3-docker.pkg.dev`
+* `gcloud services list`
+* `gcloud projects get-iam-policy ACCOUNT_NAME`
+* `helm template test workload --values workload/values.yaml --values ../common.yaml --set service.team="devOps" --debug`
+* `git config --global alias.wip "for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"`
+* 4-HOUR STUDY WITH ME -> https://www.youtube.com/watch?v=DXT9dF-WK-I
+
 ## Week 22/1401
 ###### 33/2022
 * https://cloud.google.com/iam/docs/workload-identity-federation
