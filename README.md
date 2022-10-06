@@ -12,6 +12,7 @@ My weekly journey log regarding interesting things that I saw
 * `gcloud auth configure-docker europe-west3-docker.pkg.dev`
 * `gcloud services list`
 * `gcloud projects get-iam-policy ACCOUNT_NAME`
+* `helm dependency build`
 * `helm template test workload --values workload/values.yaml --values ../common.yaml --set service.team="devOps" --debug`
 * `git config --global alias.wip "for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads"`
 * 4-HOUR STUDY WITH ME -> https://www.youtube.com/watch?v=DXT9dF-WK-I
