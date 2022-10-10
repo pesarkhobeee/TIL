@@ -1,6 +1,12 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 26/1401 - 29/1401
+###### 37/2022 - 40/2022
+
+**Zan Zendegi Azadi #mahsa_amini**
+
+
 ## Week 23/1401 - 25/1401
 ###### 34/2022 - 36/2022
 * https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understan[…]idc-token
