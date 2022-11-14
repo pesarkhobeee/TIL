@@ -1,8 +1,20 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
-## Week 26/1401 - 32/1401
-###### 37/2022 - 43/2022
+## Week 34/1401
+###### 45/2022
+* Trust, Openness, Fairness
+* `git diff HEAD~1  --name-only --relative`
+* Variadic Functions in Go => https://www.geeksforgeeks.org/variadic-functions-in-go/
+* How to add a method to struct type in Golang? => https://www.geeksforgeeks.org/how-to-add-a-method-to-struct-type-in-golang/
+* YAML Anchors, Aliases and Extensions => https://medium.com/@kinghuang/docker-compose-anchors-aliases-extensions-a1e4105d70bd
+* V2Ray => https://github.com/jacob-schmitt/liberty
+* Terraform yamldecode => https://github.com/hashicorp/terraform/issues/31673
+* ADHD Tribe Berlin  => https://www.facebook.com/groups/130108811035498/about/
+* Manifest v3 in Firefox => https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/
+
+## Week 26/1401 - 33/1401
+###### 37/2022 - 44/2022
 
 **Zan Zendegi Azadi #mahsa_amini**
 
