@@ -1,6 +1,68 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+
+## Week 37/1401
+###### 48/2022
+* https://nedinthecloud.com/2022/09/26/using-optional-arguments-in-terraform-input-variables/
+```
+    type = list(object({
+      project_name       = string
+      private            = optional(bool)
+      custom_domain      = optional(list(map))
+      build_config       = optional(map)
+      deployment_configs = optional(map)
+      source             = optional(map)
+    }))
+```
+* Making It Count: Quality is NOT an Option => https://www.youtube.com/watch?v=LTZdmb5-8n8
+
+## Week 35/1401 - 36/1401
+###### 46/2022 - 47/2022
+* SKU => https://www.shopify.com/encyclopedia/stock-keeping-unit-sku
+* CMP => https://help.doit.com/docs/cloud-analytics/reports
+* terraform-compliance => https://github.com/terraform-compliance/cli
+```
+Feature: Labels related general feature
+    @exclude_.*google_secret_manager_secret.*
+    Scenario: Ensure that service label is defined
+        Given I have resource that supports labels defined
+        When its provider_name metadata is registry.terraform.io/hashicorp/google or registry.terraform.io/hashicorp/google-beta
+        And it has labels
+        Then it must contain labels
+        Then it must contain "service"
+    
+    @exclude_.*google_secret_manager_secret.*
+    Scenario: Ensure that environment label is defined
+        Given I have resource that supports labels defined
+        When its provider_name metadata is registry.terraform.io/hashicorp/google or registry.terraform.io/hashicorp/google-beta
+        And it has labels
+        Then it must contain labels
+        Then it must contain "env"
+```
+* https://www.contino.io/insights/terraform-best-practices
+* https://developer.hashicorp.com/terraform/language/functions/flatten
+* flatten ensures that this local value is a flat list of objects, rather than a list of lists of objects:
+```
+  projects_flatten = flatten([
+    for project_key, project in var.projects : [
+      for custom_domain_key, custom_domain in try(project.custom_domains, [""]) :
+      {
+        project_name       = project.project_name
+        custom_domain      = custom_domain
+        private            = try(project.private, false)
+        build_config       = try(project.build_config, null)
+        deployment_configs = try(project.deployment_configs, null)
+        source             = try(project.source, null)
+      }
+    ]
+  ])
+  ```
+* Zsh-z => https://github.com/agkozak/zsh-z
+* Code Review Best Practices => https://www.youtube.com/watch?v=a9_0UUUNt-Y
+* Depression and Burnout: the Hardest Refactor I’ve ever done => https://www.youtube.com/watch?v=m20KBFUuw-w&amp;ab_channel=GOTOConferences
+* Chapter One Coffee => https://maps.app.goo.gl/PtgpJt1Lq74rYEPK8
+
 ## Week 34/1401
 ###### 45/2022
 * Trust, Openness, Fairness
