@@ -44,19 +44,45 @@ Feature: Labels related general feature
 * https://developer.hashicorp.com/terraform/language/functions/flatten
 * flatten ensures that this local value is a flat list of objects, rather than a list of lists of objects:
 ```
+locals {
+  projects = [
+    {
+      project_name = "test1"
+    },
+    {
+      project_name = "test2-first-module-project"
+      custom_domains = [
+        {
+          domain              = "test2-first-module-project.staging.gotest2.com"
+          target_pages_domain = "staging.test2-first-module-project.pages.dev"
+          private             = true
+        },
+        {
+            domain = "test2-first-module-project.gotest2.com",
+            target_pages_domain = "test2-first-module-project.pages.dev",
+        },
+      ]
+    }
+  ]
+
+  # https://developer.hashicorp.com/terraform/language/functions/flatten
+  # flatten ensures that this local value is a flat list of objects, rather
+  # than a list of lists of objects.
   projects_flatten = flatten([
-    for project_key, project in var.projects : [
-      for custom_domain_key, custom_domain in try(project.custom_domains, [""]) :
-      {
-        project_name       = project.project_name
-        custom_domain      = custom_domain
-        private            = try(project.private, false)
-        build_config       = try(project.build_config, null)
-        deployment_configs = try(project.deployment_configs, null)
-        source             = try(project.source, null)
-      }
-    ]
+        for project_key, project in local.projects : [
+                for custom_domain_key, custom_domain in try(project.custom_domains, [""])  :
+                {
+                        project_name = project.project_name
+                        custom_domain = custom_domain
+                }
+        ]
   ])
+}
+
+output "test" {
+  value = local.projects_flatten
+}
+
   ```
 * Zsh-z => https://github.com/agkozak/zsh-z
 * Code Review Best Practices => https://www.youtube.com/watch?v=a9_0UUUNt-Y
