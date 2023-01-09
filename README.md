@@ -1,6 +1,80 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 40/1401 - 41/1401
+###### 51/2022 - 52/2022
+* ***wedding***
+
+## Week 38/1401 - 39/1401
+###### 49/2022 - 50/2022
+* https://terratest.gruntwork.io/docs/getting-started/quick-start/
+*
+```
+func TestTerraformPlanCloudflarePages(t *testing.T) {
+
+	// Construct the terraform options with default retryable errors to handle the most common
+	// retryable errors in terraform testing.
+	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
+		// Set the path to the Terraform code that will be tested.
+		TerraformDir: "cloudflare_page",
+	})
+
+	// Clean up resources with "terraform destroy" at the end of the test.
+	defer terraform.Destroy(t, terraformOptions)
+
+	// This will run `terraform init` and `terraform Plan` and fail the test if there are any errors
+	output := terraform.InitAndPlan(t, terraformOptions)
+
+	assert.Contains(t, output, "10 to add")
+	assert.NotContains(t, output, "Error")
+}
+```
+*
+```
+name: Testing
+
+on:
+  push:
+    paths:
+      - 'cloudflare-pages/*.tf'
+  pull_request:
+    paths:
+      - 'cloudflare-pages/*.tf'
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.8
+          terraform_wrapper: false
+
+      - uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
+
+      - name: Download Go Modules
+        working-directory: cloudflare-pages/test
+        run: go mod download
+
+      - name: Run Go Tests
+        working-directory: cloudflare-pages/test
+        run: go test -v
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+```
+*
+```
+terraform import cloudflare_pages_domain.example <account_id>/<project_name>/<domain-name>
+terraform import cloudflare_pages_project.example <account_id>/<project_name>
+terraform import cloudflare_record.default ZoneID/RecordID
+```
 
 ## Week 37/1401
 ###### 48/2022
