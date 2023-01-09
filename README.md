@@ -1,6 +1,65 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 42/1401
+###### 01/2023
+* ```alias o="cat ~/bookmarks.html | grep -Eo \"(http|https)://[a-zA-Z0-9./?=_%:-]*\" | fzf | xargs open -u"```
+* https://betterprogramming.pub/5-essential-terraform-tools-to-use-everyday-e910a96e70d9
+* https://github.com/sainnhe/everforest
+*
+```
+name: Linting
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-20.04
+    name: Run Linters
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          # Enable listing of files matching each filter.
+          # Paths to files will be available in `${FILTER_NAME}_files` output variable.
+          # Paths will be escaped and space-delimited.
+          # Output is usable as command-line argument list in Linux shell
+          list-files: shell
+          filters: |
+            terraform:
+              - added|modified: '**/*.tf'
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        if: ${{ steps.filter.outputs.terraform == 'true' }}
+        with:
+          terraform_version: 1.0.8
+          terraform_wrapper: false
+
+      - name: Lint Terraform
+        if: ${{ steps.filter.outputs.terraform == 'true' }}
+        run: echo ${{ steps.filter.outputs.terraform_files }} |  sed 's/ /\n/g' | while read ARGS; do echo $ARGS | xargs terraform fmt -diff -check ; done
+
+      - name: Setup TFLint
+        uses: terraform-linters/setup-tflint@v2
+        if: ${{ steps.filter.outputs.terraform == 'true' }}
+        with:
+          tflint_version: v0.44.1
+
+      - name: Init TFLint
+        if: ${{ steps.filter.outputs.terraform == 'true' }}
+        run: tflint --init
+
+      - name: Run TFLint
+        if: ${{ steps.filter.outputs.terraform == 'true' }}
+        run: echo ${{ steps.filter.outputs.terraform_files }} |  sed 's/ /\n/g' | while read ARGS; do echo $ARGS | xargs tflint -f compact ; done
+```
+
 ## Week 40/1401 - 41/1401
 ###### 51/2022 - 52/2022
 * ***wedding***
