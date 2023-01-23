@@ -1,6 +1,38 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 44/1401
+###### 03/2023
+
+* https://www.zupzup.org/go-port-forwarding/index.html
+* **Hackathon**
+* https://developer.valvesoftware.com/wiki/Source_RCON_Protocol
+* https://github.com/phybros/servertap/releases/download/v0.4.0/ServerTap-0.4.0.jar
+* https://github.com/aleksandrzhiliaev/minecraft-hackathon
+* 
+```
+version: '3'
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    volumes:
+      - ./data:/data
+    environment:
+      EULA: 'true'
+      VERSION: 1.18.2
+      PAPERBUILD: 379
+      TYPE: PAPER
+    ports:
+      - '25565:25565'
+      - '25575:25575'
+      - '4567:4567'
+```
+
+## Week 43/1401
+###### 02/2023
+
+**Corona**
+
 ## Week 42/1401
 ###### 01/2023
 * ```alias o="cat ~/bookmarks.html | grep -Eo \"(http|https)://[a-zA-Z0-9./?=_%:-]*\" | fzf | xargs open -u"```
