@@ -1,6 +1,18 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 45/1401
+###### 04/2023
+* https://home.robusta.dev/blog/stop-using-cpu-limits
+* https://home.robusta.dev/blog/kubernetes-memory-limit
+* https://home.robusta.dev/blog/kubernetes-utilization-vs-reliability
+* https://www.docker.com/blog/how-to-rapidly-build-multi-architecture-images-with-buildx/
+* How I learned to love build systems => https://www.youtube.com/watch?v=7_DExGdUw7w
+* 
+```
+kubectl get pods -A -o json | jq --raw-output '.items[] | select((.spec.containers[0].resources.resources == null or .spec.containers[1].resources.resources == null) and .status.phase == "Running" and .metadata.namespace != "kube-system" and .metadata.namespace != "datadog") | [.metadata.name, .metadata.namespace] | @csv' | tee >(wc -l | xargs echo "Number of pods without Resources: ")
+```
+
 ## Week 44/1401
 ###### 03/2023
 
