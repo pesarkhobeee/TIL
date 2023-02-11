@@ -1,6 +1,21 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 47/1401
+###### 06/2023
+* Inodes in Linux: limit, usage and helpful commands => https://www.stackscale.com/blog/inodes-linux/#:~:text=An%20inode%20is%20a%20data,about%20each%20file%20and%20directory
+* https://stackoverflow.com/questions/41406903/remote-git-branches-not-visible
+* RSD => https://www.webmd.com/add-adhd/rejection-sensitive-dysphoria#:~:text=This%20is%20sometimes%20called%20rejection,don't%20handle%20rejection%20well.
+* https://www.ing.de/baufinanzierung/neufinanzierung/rechner/
+
+## Week 46/1401
+###### 05/2023
+* https://gobyexample.com/select
+* https://tech.deliveryhero.com/a-systematic-way-to-optimize-gke-resources/
+* kube:unallocated: Resources are neither requested by workloads nor requested for system overhead.
+* https://cloud.google.com/kubernetes-engine/docs/how-to/cost-allocations
+* https://cloud.google.com/architecture/best-practices-for-running-cost-effective-kubernetes-applications-on-gke
+
 ## Week 45/1401
 ###### 04/2023
 * https://home.robusta.dev/blog/stop-using-cpu-limits
