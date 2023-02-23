@@ -1,6 +1,15 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 48/1401
+###### 07/2023
+* https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/
+* https://levelup.gitconnected.com/understanding-jobs-in-kubernetes-68ac21b272d8
+* https://levelup.gitconnected.com/write-go-like-a-senior-engineer-eee7f03a1883
+* https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#i-have-a-couple-of-nodes-with-low-utilization-but-they-are-not-scaled-down-why
+* https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu
+* https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory
+
 ## Week 47/1401
 ###### 06/2023
 * Inodes in Linux: limit, usage and helpful commands => https://www.stackscale.com/blog/inodes-linux/#:~:text=An%20inode%20is%20a%20data,about%20each%20file%20and%20directory
