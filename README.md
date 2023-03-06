@@ -1,6 +1,80 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+## Week 50/1401
+###### 09/2023
+* https://softwaremill.com/vertical-pod-autoscaling-with-gcp/
+* https://cloud.google.com/architecture/best-practices-for-running-cost-effective-kubernetes-applications-on-gke#make_sure_your_container_is_as_lean_as_possible
+* https://medium.com/infrastructure-adventures/vertical-pod-autoscaler-deep-dive-limitations-and-real-world-examples-9195f8422724
+* https://cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler
+* https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
+* https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/FAQ.md#i-get-recommendations-for-my-single-pod-replicaset-but-they-are-not-applied
+* https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/pkg/updater/main.go#L46
+* https://github.com/kubernetes/autoscaler/issues/1665
+* https://cloud.google.com/kubernetes-engine/docs/how-to/vertical-pod-autoscaling
+* https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/deploy/updater-deployment.yaml
+* **This is my short report about testing VPA:**
+	* After enabling it on the staging cluster via the web console whit the help of this link. I could check if it is up and running: `kubectl api-resources | grep autoscaler`
+	**Caution:** Enabling or disabling vertical Pod autoscaling causes a control plane restart
+	* By default, You can only enable vertical scaling on deployments that have at least 2 healthy replicas running:
+	https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/pkg/updater/main.go#L46
+	https://github.com/kubernetes/autoscaler/blob/master/vertical-pod-autoscaler/FAQ.md#i-get-recommendations-for-my-s[…]icaset-but-they-are-not-applied
+	We can try to change that by passing --min-replicas=1 to VPA updater.
+	* Due to Kubernetes limitations, the only way to modify the resource requests of a running Pod is to recreate the Pod. If you create a VerticalPodAutoscaler object with an updateMode of Auto, the VerticalPodAutoscaler evicts a Pod if it needs to change the Pod’s resource requests. To limit the amount of Pod restarts, use a Pod disruption budget. To ensure that your cluster can handle the new sizes of your workloads, use cluster autoscaler and node auto-provisioning.
+	* Mixing HPA and VPA for one deployment will make predication of a deployment behaviour hard, therefore, it is not recommended
+	* The biggest con to using VPA is its inability to handle sudden increases in resource usage. we can try to fix this by HPAs.
+	* when we are creating VerticalPodAutoscaler for each deployment, based on that deployment application profiling, it is better to set minAllowed , otherwise, the functionality of that program may be affected by vpa:
+	```
+	apiVersion: autoscaling.k8s.io/v1
+	kind: VerticalPodAutoscaler
+	metadata:
+	  name: someContainerName-vpa
+	spec:
+	  targetRef:
+	    apiVersion: "apps/v1"
+	    kind:       Deployment
+	    name:       someContainerName
+	  updatePolicy:
+	    updateMode: "Auto"
+	  resourcePolicy:
+	    containerPolicies:
+	      - containerName: someContainerName
+		minAllowed:
+		  cpu: "250m"
+		  memory: "250Mi"
+	```
+
+	* **Conclusions:**
+	Now we have some test cases in devops namespace with VPA, but after my investigation, I can see having a correct setup of VPA needs a good understanding of each application usage which is not our cup of tea, also we should set up Pod Disruption Budget or HPA alongside VPAs for critical applications and that is a lot of work. in the end, considering all these facts, I don’t think this is easier than supporting teams to adjust requests numbers by themself. so if you are ok, because of all the reasons that I described, I will archive this information and not suggest using this even on staging for all the namespaces.
+
+## Week 49/1401
+###### 08/2023
+* https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster#nested_node_config
+* strace:
+```
+* ps -aux | grep "nginx"
+* strace -e  trace=open,openat,close,connect,accept -p 17192 -p 17191 -p 12510 -f
+* strace -c python -m SimpleHTTPServer 8080
+* strace -e  trace=file -p 17192 -p 13257 -p 13258 -f
+```
+* This year I want to:
+	* Don't work overtime
+	* Having an ADHD consultant/DR here in Berlin
+	* GO daily practice by https://exercism.org 
+	* Contribute to opensource
+	* Google Cloud Certified Professional Cloud Architect (PCA) certification:
+		* https://cloud.google.com/certification/cloud-architect
+		* https://www.pluralsight.com/paths/cloud-architecture-with-google-cloud
+		* https://www.coursera.org/specializations/gcp-architecture-bhid?
+	* Read : 
+		* How Linux works
+		* Designing Distributed Systems: Patterns and Paradigms for Scalable, Reliable Services
+		* Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable System
+		* Building Secure and Reliable Systems: Best Practices for Designing, Implementing, and Maintaining Systems
+		* System Design Interview – An Insider's Guide
+		* Building Secure and Reliable Systems: Best Practices for Designing, Implementing, and Maintaining Systems
+* https://en.wikipedia.org/wiki/Open-source_software_advocacy
+
 ## Week 48/1401
 ###### 07/2023
 * https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/
