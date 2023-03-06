@@ -74,6 +74,8 @@ My weekly journey log regarding interesting things that I saw
 		* System Design Interview – An Insider's Guide
 		* Building Secure and Reliable Systems: Best Practices for Designing, Implementing, and Maintaining Systems
 * https://en.wikipedia.org/wiki/Open-source_software_advocacy
+* https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/ :
+    * ```Kubernetes doesn't allow you to specify CPU resources with a precision finer than 1m. Because of this, it's useful to specify CPU units less than 1.0 or 1000m using the milliCPU form; for example, 5m rather than 0.005.``` 
 
 ## Week 48/1401
 ###### 07/2023
