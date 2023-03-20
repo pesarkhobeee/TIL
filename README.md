@@ -1,6 +1,83 @@
 ### TIL: Today I Learned (Weekly Changelog)
 My weekly journey log regarding interesting things that I saw
 
+
+## Week 51/1401 52/1401
+###### 10/2023 - 11/2023
+* `find .`
+* This week I started using https://obsidian.md/ and I am supper happy with it, specially with community plugins like:
+	* https://github.com/lynchjames/obsidian-day-planner
+	* https://github.com/liamcain/obsidian-calendar-plugin
+	* AI => https://www.youtube.com/watch?v=tNAsLbGdM6A
+* https://www.alfredapp.com/ vs https://www.raycast.com/
+* https://www.warp.dev/
+* 
+```
+#! env python3
+# Chat GPT 3.5
+# Ref: https://developer.hashicorp.com/terraform/internals/provider-registry-protocol#list-available-versions
+import requests
+import json
+import sys
+import re
+import json
+import os
+import glob
+
+def find_json_files(root_dir):
+    json_files = []
+    for dirpath, dirnames, filenames in os.walk(root_dir):
+        for filename in filenames:
+            if filename.endswith(".json"):
+                json_files.append(os.path.join(dirpath, filename))
+    return json_files
+
+def get_provider_names(file_paths):
+    providers = set()
+    for file_path in file_paths:
+        with open(file_path) as f:
+            data = json.load(f)
+            for item in data:
+                for provider in item['providers']:
+                    provider_name = provider['provider'].replace('registry.terraform.io/', '')
+                    if '/' not in provider_name:
+                        provider_name = f"hashicorp/{provider_name}"
+                    providers.add(provider_name)
+    return list(providers)
+
+def get_latest_version(provider):
+    url = f'https://registry.terraform.io/v1/providers/{provider}/versions'
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = json.loads(response.text)
+        versions = [version['version'] for version in data['versions']]
+        versions = [tuple(map(int, re.findall(r'\d+', v))) for v in versions]
+        latest_version = '.'.join(str(i) for i in max(versions))
+        return latest_version
+    else:
+        return None
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Please give the folder path that you like to scan for the json files")
+        sys.exit(1)
+
+    folder_name = sys.argv[1]
+    if not os.path.exists(folder_name):
+        print(f"Error: {folder_name} does not exist!")
+        sys.exit(1)
+
+    files = find_json_files(folder_name)
+    providers = get_provider_names(files)
+    for provider in providers:
+        latest_version = get_latest_version(provider)
+        if latest_version:
+            print(f'Latest version of {provider} provider is {latest_version}.')
+        else:
+            print(f'Unable to retrieve the latest version of {provider} provider.')
+```
+
+
 ## Week 50/1401
 ###### 09/2023
 * https://softwaremill.com/vertical-pod-autoscaling-with-gcp/
